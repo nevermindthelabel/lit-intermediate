@@ -1,4 +1,5 @@
 import { html, LitElement } from 'https://unpkg.com/lit-element?module';
+import './brewery-detail.js';
 
 const api = 'https://api.openbrewerydb.org/breweries';
 
