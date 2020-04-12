@@ -36,6 +36,12 @@ class OpenBrewery extends LitElement {
     return html`
       <h1>My brewery app</h1>
       <pre>${JSON.stringify(this.breweries, null, 2)}</pre>
+      ${this.breweries.map(brewery => html`<brewery-detail
+      .breweryName=${brewery.name}
+      .breweryCity=${brewery.city}
+      .breweryType=${brewery.brewery_type}
+      ></brewery-detail>`)
+      }
     `;
   }
 };
