@@ -5,7 +5,8 @@ const api = 'https://api.openbrewerydb.org/breweries';
 class OpenBrewery extends LitElement {
   static get properties() {
     return {
-      breweries: { type: Array }
+      breweries: { type: Array },
+      loading: { type: Boolean}
     }
   }
 
@@ -17,12 +18,20 @@ class OpenBrewery extends LitElement {
   }
 
   async fetchBrewries() {
+    this.loading = true;
     let response = await fetch(api);
     let data = await response.json();
     this.breweries = data;
+    this.loading = false;
   }
 
   render() {
+    if(this.loading) {
+        return html`
+        <p>Please wait while the data is fetched...</p>
+      `;
+    }
+
     return html`
       <h1>My brewery app</h1>
       <pre>${JSON.stringify(this.breweries, null, 2)}</pre>
