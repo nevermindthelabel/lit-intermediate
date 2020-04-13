@@ -5,19 +5,22 @@ class BreweryDetail extends LitElement {
     return {
       breweryName: { type: String },
       breweryType: { type: String },
-      breweryCity: { type: String }
+      breweryCity: { type: String },
+      visited: { type: Boolean }
     }
   }
 
   constructor() {
     super();
+    this.visited = false;
   }
 
   render() {
     return html`
-      <h3>${this.breweryName}</h3>
+      <h3>${this.breweryName} : ${this.visited ? 'Visited' : 'Not Visited'}</h3>
       <p>City: ${this.breweryCity}</p>
       <p>Brewery Type: ${this.breweryType}</p>
+      <button>Toggle Visited</button>
     `;
   }
 
