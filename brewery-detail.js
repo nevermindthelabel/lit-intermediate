@@ -20,7 +20,7 @@ class BreweryDetail extends LitElement {
       <h3>${this.breweryName} : ${this.visited ? 'Visited' : 'Not Visited'}</h3>
       <p>City: ${this.breweryCity}</p>
       <p>Brewery Type: ${this.breweryType}</p>
-      <button @click=${() => this.visited = !this.visited}>${this.visited}</button>
+      <button @click=${() => this.visited = !this.visited}>Mark as ${this.visited ? 'Not Visited' : 'Visited'}</button>
     `;
   }
 
