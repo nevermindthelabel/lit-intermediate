@@ -15,9 +15,9 @@ class BreweryDetail extends LitElement {
 
   render() {
     return html`
-      <li>${this.breweryName}</li>
-      <li>${this.breweryCity}</li>
-      <li>${this.breweryType}</li>
+      <h3>${this.breweryName}</h3>
+      <p>City: ${this.breweryCity}</p>
+      <p>Brewery Type: ${this.breweryType}</p>
     `;
   }
 
