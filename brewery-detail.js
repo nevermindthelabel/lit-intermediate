@@ -15,11 +15,12 @@ class BreweryDetail extends LitElement {
       <h3>${this.breweryName} : ${this.visited ? 'Visited' : 'Not Visited'}</h3>
       <p>City: ${this.breweryCity}</p>
       <p>Brewery Type: ${this.breweryType}</p>
-      <button @click=${this._toggleVisited}>Mark as ${this.visited ? 'Not Visited' : 'Visited'}</button>
+      <button @click=${this._toggleVisitedStatus}>Mark as ${this.visited ? 'Not Visited' : 'Visited'}</button>
     `;
   }
 
   _toggleVisitedStatus() {
+    console.log('clicked');
     this.dispatchEvent(new CustomEvent('toggle-visited-status'));
   }
 };
