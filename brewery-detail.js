@@ -12,7 +12,6 @@ class BreweryDetail extends LitElement {
 
   constructor() {
     super();
-    this.visited = false;
   }
 
   render() {
@@ -23,10 +22,10 @@ class BreweryDetail extends LitElement {
       <button @click=${this._toggleVisited}>Mark as ${this.visited ? 'Not Visited' : 'Visited'}</button>
     `;
   }
-  _toggleVisited() {
-    this.visited = !this.visited;
-  }
 
+  _toggleVisitedStatus() {
+    this.dispatchEvent(new CustomEvent('toggle-visited-status'));
+  }
 };
 
 customElements.define('brewery-detail', BreweryDetail);
