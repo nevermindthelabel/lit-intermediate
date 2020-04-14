@@ -35,18 +35,29 @@ class OpenBrewery extends LitElement {
 
     return html`
       <h1>My brewery app</h1>
+      <ul>
       ${this.breweries.map(brewery => html`
         <li>
           <brewery-detail
           .breweryName=${brewery.name}
           .breweryCity=${brewery.city}
           .breweryType=${brewery.brewery_type}
+          .visited=${brewery.visited}
+          @toggle-visited-status=${() => this._toggleVisitedStatus(brewery)}
           ></brewery-detail>
         </li>
       `)
       }
+      </ul>
     `;
   }
+  _toggleVisitedStatus(breweryToUpdate) {
+    console.log('event');
+    this.breweries = this.breweries.map(brewery => {
+      return brewery === breweryToUpdate ? { ...brewery, visited: !brewery.visited } : brewery;
+    });
+  }
+
 };
 
 customElements.define('open-brewery', OpenBrewery);
