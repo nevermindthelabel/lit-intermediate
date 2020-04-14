@@ -10,10 +10,6 @@ class BreweryDetail extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-  }
-
   render() {
     return html`
       <h3>${this.breweryName} : ${this.visited ? 'Visited' : 'Not Visited'}</h3>
