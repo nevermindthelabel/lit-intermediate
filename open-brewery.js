@@ -26,7 +26,12 @@ class OpenBrewery extends LitElement {
     this.loading = false;
   }
 
+
+
   render() {
+    const totalVisited = this.breweries.filter(b => b.visited).length;
+    const totalNotVisited = this.breweries.length - totalVisited;
+
     if (this.loading) {
       return html`
         <p>Please wait while the data is fetched...</p>
@@ -35,6 +40,7 @@ class OpenBrewery extends LitElement {
 
     return html`
       <h1>My brewery app</h1>
+      <h3>Visited ${totalVisited} and ${totalNotVisited} Not Visited</h3>
       <ul>
       ${this.breweries.map(brewery => html`
         <li>
