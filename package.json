@@ -1,0 +1,24 @@
+{
+  "name": "lit-intermediate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "brewery-detail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nevermindthelabel/lit-intermediate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nevermindthelabel/lit-intermediate/issues"
+  },
+  "homepage": "https://github.com/nevermindthelabel/lit-intermediate#readme",
+  "devDependencies": {
+    "@open-wc/eslint-config": "^2.0.4",
+    "@open-wc/prettier-config": "^0.1.14"
+  }
+}
