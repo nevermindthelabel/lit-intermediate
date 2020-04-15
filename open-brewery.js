@@ -41,6 +41,7 @@ class OpenBrewery extends LitElement {
     return html`
       <h1>My brewery app</h1>
       <h3>Visited ${totalVisited} and ${totalNotVisited} Not Visited</h3>
+      <button>View All</button> <button>View Visited</button> <button>View Not Visisted</button>
       <ul>
       ${this.breweries.map(brewery => html`
         <li>
@@ -58,7 +59,6 @@ class OpenBrewery extends LitElement {
     `;
   }
   _toggleVisitedStatus(breweryToUpdate) {
-    console.log('event');
     this.breweries = this.breweries.map(brewery => {
       return brewery === breweryToUpdate ? { ...brewery, visited: !brewery.visited } : brewery;
     });
