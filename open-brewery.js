@@ -7,7 +7,8 @@ class OpenBrewery extends LitElement {
   static get properties() {
     return {
       breweries: { type: Array },
-      loading: { type: Boolean }
+      loading: { type: Boolean },
+      filter: { type: String }
     }
   }
 
@@ -31,7 +32,12 @@ class OpenBrewery extends LitElement {
   render() {
     const totalVisited = this.breweries.filter(b => b.visited).length;
     const totalNotVisited = this.breweries.length - totalVisited;
-    const returnVisited = this.breweries.filter(b => b.visited);
+    const breweries = this.breweries.filter(brewery => {
+      if(!this.filter) {
+        return true;
+      }
+      return this.filter === 'visited' ? brewery.visted : !brewery.visited
+    });
 
     if (this.loading) {
       return html`
@@ -42,9 +48,9 @@ class OpenBrewery extends LitElement {
     return html`
       <h1>My brewery app</h1>
       <h3>Visited ${totalVisited} and ${totalNotVisited} Not Visited</h3>
-      <button @click="${() => console.log(returnVisited)}">View All</button> <button>View Visited</button> <button>View Not Visisted</button>
+      <button @click="${this._filterNone}">View All</button> <button @click="${this._filterVisited}">View Visited</button> <button>View Not Visisted</button>
       <ul>
-      ${this.breweries.map(brewery => html`
+      ${breweries.map(brewery => html`
         <li>
           <brewery-detail
           .breweryName=${brewery.name}
@@ -64,7 +70,13 @@ class OpenBrewery extends LitElement {
       return brewery === breweryToUpdate ? { ...brewery, visited: !brewery.visited } : brewery;
     });
   }
-
+  _filterNone() {
+    this.filter = null;
+  }
+  _filterVisited() {
+    this.filter = 'visited';
+    console.log(this.breweries)
+  }
 };
 
 customElements.define('open-brewery', OpenBrewery);
