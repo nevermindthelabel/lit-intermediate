@@ -20,7 +20,6 @@ class BreweryDetail extends LitElement {
   }
 
   _toggleVisitedStatus() {
-    console.log('clicked');
     this.dispatchEvent(new CustomEvent('toggle-visited-status'));
   }
 };
