@@ -48,7 +48,7 @@ class OpenBrewery extends LitElement {
     return html`
       <h1>My brewery app</h1>
       <h3>Visited ${totalVisited} and ${totalNotVisited} Not Visited</h3>
-      <button @click="${this._filterNone}">View All</button> <button @click="${this._filterVisited}">View Visited</button> <button>View Not Visisted</button>
+      <button @click="${this._filterNone}">View All</button> <button @click="${this._filterVisited}">View Visited</button> <button @click="${this._filterNotVisited}">View Not Vistied</button>
       <ul>
       ${breweries.map(brewery => html`
         <li>
@@ -76,6 +76,9 @@ class OpenBrewery extends LitElement {
   _filterVisited() {
     this.filter = 'visited';
     console.log(this.breweries)
+  }
+  _filterNotVisited() {
+    this.filter = 'not visited';
   }
 };
 
